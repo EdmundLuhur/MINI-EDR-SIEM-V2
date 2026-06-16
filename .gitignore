@@ -1,0 +1,20 @@
+# C++ build outputs
+/agent-cpp/process_collector
+/agent-cpp/src/process_collector
+/agent-cpp/build/
+*.o
+*.out
+*.exe
+
+# Python cache / virtual environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
