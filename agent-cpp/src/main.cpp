@@ -23,6 +23,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 
 struct ProcessInfo{
@@ -55,6 +56,22 @@ int main(){
 
     std::string line;
     while (std::getline(statusFile, line)) {
+
+        if (line.rfind("Pid:", 0) == 0){
+            std::stringstream ss(line.substr(4));
+            ss >>processInfo.pid;
+        }
+        
+        if (line.rfind("PPid",0) == 0){
+            std::stringstream ss (line.substr(5));
+            ss >> processInfo.ppid;
+        }
+
+        if (line.rfind("Uid:",0) == 0){
+            std::stringstream ss (line.substr(4));
+            ss >> processInfo.uid;
+        }
+
         if(line.find("Name:") == 0) {
             processInfo.name = line.substr(6);
         }
@@ -69,7 +86,6 @@ int main(){
     std::cout << "Name: " << processInfo.name << std::endl;
     std::cout << "Command Line: " << processInfo.command_line << std::endl;
     std::cout << "Executable Path: " << processInfo.exe_path << std::endl;
-
     return 0;
 }
 
