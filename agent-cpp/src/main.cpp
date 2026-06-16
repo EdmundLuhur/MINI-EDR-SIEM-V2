@@ -24,7 +24,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-
+#include <unistd.h>
 
 struct ProcessInfo{
 // the struct/type name 
@@ -77,7 +77,35 @@ int main(){
         }
         // look for Name, Pid, PPid and Uid.
     
+
+        std::ifstream cmdlineFile("/proc/1/cmdline");
+
+        if (cmdlineFile. is_open()) {
+            std::string cmdlineContent;
+            char ch;
+
+            while (cmdlineFile.get(ch)) {
+                if (ch == '\0'){
+                    ch = ' ';
+                }
+                cmdlineContent += ch;
+            }
+
+            if(!cmdlineContent.empty()){
+                processInfo.command_line = cmdlineContent;
+            }
+        }
+
+        char exeBuffer [4096];
+
+        ssize_t exeLength = readlink("/proc/1/exe", exeBuffer, sizeof(exeBuffer) -1);
+
+        if (exeLength != -1){
+            exeBuffer[exeLength] = '\0';
+            processInfo.exe_path = exeBuffer;
+        }
     }
+
 
 
     std::cout <<"PID: " << processInfo.pid << std::endl;
