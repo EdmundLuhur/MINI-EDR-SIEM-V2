@@ -46,8 +46,13 @@ int main(){
     processInfo.command_line = "unavailable";
     processInfo.exe_path = "unavailable";
 
+    int targetPid =1;
+    std::string statusPath = "/proc/" + std::to_string(targetPid) + "/status";
+    std::string cmdlinePath = "/proc/" + std::to_string(targetPid) + "/cmdline";
+    std::string exePath = "/proc/" + std::to_string(targetPid) + "/exe";
 
-    std::ifstream statusFile("/proc/1/status");
+    std::cout << "Trying to open: [" << statusPath << "]" << std::endl;
+    std::ifstream statusFile(statusPath);
 
     if (!statusFile.is_open()) {
         std::cout <<"Error: Could not open /proc/1/status" << std::endl;
@@ -78,7 +83,7 @@ int main(){
         // look for Name, Pid, PPid and Uid.
     
 
-        std::ifstream cmdlineFile("/proc/1/cmdline");
+        std::ifstream cmdlineFile(cmdlinePath);
 
         if (cmdlineFile. is_open()) {
             std::string cmdlineContent;
@@ -98,7 +103,7 @@ int main(){
 
         char exeBuffer [4096];
 
-        ssize_t exeLength = readlink("/proc/1/exe", exeBuffer, sizeof(exeBuffer) -1);
+        ssize_t exeLength = readlink(exePath.c_str(), exeBuffer, sizeof(exeBuffer) -1);
 
         if (exeLength != -1){
             exeBuffer[exeLength] = '\0';
