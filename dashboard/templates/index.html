@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <p class="eyebrow">Overview</p>
+        <h2>Mini EDR + SIEM-Lite Dashboard</h2>
+        <p class="muted">Dashboard is working.</p>
+    </div>
+</section>
+
+<section class="stat-grid">
+    <div class="stat-card">
+        <span>Total Process Events</span>
+        <strong>{{ stats.total_process_events }}</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Total Alerts</span>
+        <strong>{{ stats.total_alerts }}</strong>
+    </div>
+
+    <div class="stat-card warning">
+        <span>Medium+ Alerts</span>
+        <strong>{{ stats.medium_plus_alerts }}</strong>
+    </div>
+
+    <div class="stat-card danger">
+        <span>High+ Alerts</span>
+        <strong>{{ stats.high_plus_alerts }}</strong>
+    </div>
+</section>
+
+<section class="panel">
+    <h3>Latest Alerts</h3>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Severity</th>
+                    <th>Rule</th>
+                    <th>PID</th>
+                    <th>Name</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alert in latest_alerts %}
+                <tr>
+                    <td>#{{ alert.id }}</td>
+                    <td><span class="badge {{ alert.severity }}">{{ alert.severity }}</span></td>
+                    <td>{{ alert.rule }}</td>
+                    <td>{{ alert.pid }}</td>
+                    <td>{{ alert.name }}</td>
+                    <td>{{ alert.reason }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6">No alerts found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

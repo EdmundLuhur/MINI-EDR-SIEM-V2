@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mini EDR + SIEM-Lite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <div>
+            <div class="brand">
+                <div class="brand-icon">EDR</div>
+                <div>
+                    <h1>Mini SIEM</h1>
+                    <p>Detection Platform</p>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Overview</a>
+                <a href="{{ url_for('alerts') }}">Alerts</a>
+                <a href="{{ url_for('processes') }}">Process Events</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <span>Status</span>
+            <strong>Local Lab</strong>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

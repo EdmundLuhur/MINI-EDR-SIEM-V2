@@ -1,20 +1,22 @@
-# C++ build outputs
-/agent-cpp/process_collector
-/agent-cpp/src/process_collector
-/agent-cpp/build/
-*.o
-*.out
-*.exe
+# Build outputs
+agent-cpp/process_collector
+agent-cpp/process_collector.exe
 
-# Python cache / virtual environments
+# Generated telemetry/output files
+agent-cpp/output/
+backend-python/output/
+backend-python/storage/
+
+# Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# Virtual environments
 .venv/
 venv/
 
-# Logs
-*.log
-
-# OS files
+# OS/editor files
 .DS_Store
 Thumbs.db
+.vscode/
