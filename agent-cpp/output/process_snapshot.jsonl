@@ -1,0 +1,28 @@
+{"pid":1,"ppid":0,"uid":0,"name":"systemd","command_line":"/usr/lib/systemd/systemd --system --deserialize=91 ","exe_path":"unavailable"}
+{"pid":2,"ppid":1,"uid":0,"name":"init-systemd(Ub","command_line":"/init ","exe_path":"unavailable"}
+{"pid":6,"ppid":2,"uid":0,"name":"init","command_line":"plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate ","exe_path":"unavailable"}
+{"pid":165,"ppid":1,"uid":0,"name":"cron","command_line":"/usr/sbin/cron -f -P ","exe_path":"unavailable"}
+{"pid":166,"ppid":1,"uid":101,"name":"dbus-daemon","command_line":"@dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only ","exe_path":"unavailable"}
+{"pid":176,"ppid":1,"uid":0,"name":"systemd-logind","command_line":"/usr/lib/systemd/systemd-logind ","exe_path":"unavailable"}
+{"pid":188,"ppid":1,"uid":0,"name":"agetty","command_line":"/sbin/agetty -o -p -- \\u --noclear --keep-baud - 115200,38400,9600 vt220 ","exe_path":"unavailable"}
+{"pid":192,"ppid":1,"uid":102,"name":"rsyslogd","command_line":"/usr/sbin/rsyslogd -n -iNONE ","exe_path":"unavailable"}
+{"pid":198,"ppid":1,"uid":0,"name":"agetty","command_line":"/sbin/agetty -o -p -- \\u --noclear - linux ","exe_path":"unavailable"}
+{"pid":211,"ppid":1,"uid":0,"name":"unattended-upgr","command_line":"/usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal ","exe_path":"unavailable"}
+{"pid":311,"ppid":2,"uid":0,"name":"SessionLeader","command_line":"/init ","exe_path":"unavailable"}
+{"pid":312,"ppid":311,"uid":0,"name":"Relay(313)","command_line":"/init ","exe_path":"unavailable"}
+{"pid":313,"ppid":312,"uid":1000,"name":"bash","command_line":"-bash ","exe_path":"/usr/bin/bash"}
+{"pid":314,"ppid":2,"uid":0,"name":"login","command_line":"/bin/login -f        ","exe_path":"unavailable"}
+{"pid":358,"ppid":1,"uid":1000,"name":"systemd","command_line":"/usr/lib/systemd/systemd --user --deserialize=23 ","exe_path":"/usr/lib/systemd/systemd"}
+{"pid":359,"ppid":358,"uid":1000,"name":"(sd-pam)","command_line":"(sd-pam) ","exe_path":"unavailable"}
+{"pid":385,"ppid":314,"uid":1000,"name":"bash","command_line":"-bash ","exe_path":"/usr/bin/bash"}
+{"pid":875,"ppid":1,"uid":990,"name":"polkitd","command_line":"/usr/lib/polkit-1/polkitd --no-debug ","exe_path":"unavailable"}
+{"pid":1354,"ppid":1,"uid":0,"name":"systemd-journal","command_line":"/usr/lib/systemd/systemd-journald ","exe_path":"unavailable"}
+{"pid":1407,"ppid":1,"uid":996,"name":"systemd-timesyn","command_line":"/usr/lib/systemd/systemd-timesyncd ","exe_path":"unavailable"}
+{"pid":1459,"ppid":1,"uid":0,"name":"systemd-udevd","command_line":"/usr/lib/systemd/systemd-udevd ","exe_path":"unavailable"}
+{"pid":1510,"ppid":1,"uid":991,"name":"systemd-resolve","command_line":"/usr/lib/systemd/systemd-resolved ","exe_path":"unavailable"}
+{"pid":9910,"ppid":1459,"uid":0,"name":"(udev-worker)","command_line":"(udev-worker) ","exe_path":"unavailable"}
+{"pid":9911,"ppid":1459,"uid":0,"name":"(udev-worker)","command_line":"(udev-worker) ","exe_path":"unavailable"}
+{"pid":9918,"ppid":1459,"uid":0,"name":"(udev-worker)","command_line":"(udev-worker) ","exe_path":"unavailable"}
+{"pid":9919,"ppid":1459,"uid":0,"name":"(udev-worker)","command_line":"(udev-worker) ","exe_path":"unavailable"}
+{"pid":9920,"ppid":1459,"uid":0,"name":"(udev-worker)","command_line":"(udev-worker) ","exe_path":"unavailable"}
+{"pid":9922,"ppid":313,"uid":1000,"name":"process_collect","command_line":"./agent-cpp/process_collector ","exe_path":"/mnt/c/Users/edmun/mini-edr-siem-v2/agent-cpp/process_collector"}

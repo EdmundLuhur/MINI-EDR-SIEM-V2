@@ -243,6 +243,40 @@ ProcessInfo collectProcessInfo(int targetPid) {
     return processInfo;
 }
 
+std::string escapeJsonString(const std::string& input) {
+    std::string output;
+
+    for (char c : input) {
+        if (c == '"') {
+            output += "\\\"";
+        } else if (c == '\\') {
+            output += "\\\\";
+        } else if (c == '\n') {
+            output += "\\n";
+        } else if (c == '\t') {
+            output += "\\t";
+        } else {
+            output += c;
+        }
+    }
+
+    return output;
+}
+
+std::string processInfoToJson(const ProcessInfo& processInfo) {
+    std::ostringstream json;
+
+    json << "{";
+    json << "\"pid\":" << processInfo.pid << ",";
+    json << "\"ppid\":" << processInfo.ppid << ",";
+    json << "\"uid\":" << processInfo.uid << ",";
+    json << "\"name\":\"" << escapeJsonString(processInfo.name) << "\",";
+    json << "\"command_line\":\"" << escapeJsonString(processInfo.command_line) << "\",";
+    json << "\"exe_path\":\"" << escapeJsonString(processInfo.exe_path) << "\"";
+    json << "}";
+
+    return json.str();
+}
 // This function prints one process snapshot clearly.
 //
 // Keeping printing separate from collection makes the code cleaner.
@@ -303,8 +337,8 @@ int main() {
     // Sort PIDs so the output is easier to read.
     std::sort(pids.begin(), pids.end());
 
-    std::cout << "Mini EDR Process Snapshot Collector" << std::endl;
-    std::cout << "Processes found: " << pids.size() << std::endl;
+    //std::cout << "Mini EDR Process Snapshot Collector" << std::endl;
+    //std::cout << "Processes found: " << pids.size() << std::endl;
 
     // Collect and print information for each PID.
     for (int pid : pids) {
@@ -317,7 +351,7 @@ int main() {
             continue;
         }
 
-        printProcessInfo(processInfo);
+        std::cout << processInfoToJson(processInfo) << std::endl;
     }
 
     return 0;
